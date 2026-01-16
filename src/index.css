@@ -1,0 +1,102 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+	--deep-charcoal: #121212;
+	--soft-off-white: #F7F7F5;
+	--electric-teal: #06b6d4;
+}
+
+/* Rival theme variables (applies when `.theme-rival` is added to a root element) */
+.theme-rival {
+	--rival-hero: linear-gradient(135deg,#081025 0%,#1a0833 60%);
+	--rival-bg: #050612;
+	--rival-primary: #7c3aed; /* violet */
+	--rival-accent: #ff5c93; /* pink */
+	--rival-muted: #98a0b3;
+	--rival-card: rgba(255,255,255,0.03);
+	--rival-border: rgba(255,255,255,0.06);
+	--rival-text: #e6eef8;
+}
+
+html, body, #root {
+	height: 100%;
+	--heading-font: 'Poppins', ui-sans-serif, system-ui;
+	--body-font: 'Inter', ui-sans-serif, system-ui;
+	font-family: var(--body-font);
+	font-size: 16px;
+	line-height: 1.6;
+	background-color: var(--soft-off-white);
+	color: var(--deep-charcoal);
+}
+
+/* Heading defaults */
+h1,h2,h3 { font-family: var(--heading-font); letter-spacing: -0.01em; }
+h1 { font-weight: 700; }
+h2 { font-weight: 600; }
+
+/* Utility container for consistent alignment */
+.app-container { max-width: 1100px; margin: 0 auto; padding-left: 1.25rem; padding-right: 1.25rem; }
+
+/* When Rival theme is active, adjust base background/text */
+.theme-rival html, .theme-rival body, .theme-rival #root { background: var(--rival-bg); color: var(--rival-text); }
+
+/* Global polish */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Button (electric teal) */
+.btn-teal { background-color: var(--electric-teal); color: var(--deep-charcoal); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; display:inline-block; }
+.btn-teal:hover { opacity: 0.95; }
+
+/* Rival overrides for buttons when theme is active */
+.theme-rival .btn-teal { background: linear-gradient(90deg,var(--rival-primary),var(--rival-accent)); color: var(--rival-bg); box-shadow: 0 8px 24px rgba(124,58,237,0.18); }
+
+/* Rival card style */
+.theme-rival .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid var(--rival-border); box-shadow: 0 10px 30px rgba(10,8,20,0.6); }
+
+/* Rival project tag */
+.theme-rival .project-tag { background: rgba(124,58,237,0.12); color: var(--rival-text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; }
+
+/* Card */
+.card { border-radius: 12px; background: var(--soft-off-white); border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 28px rgba(2,6,23,0.08); transition: transform 220ms ease, box-shadow 220ms ease; overflow: hidden; }
+.card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(2,6,23,0.18); }
+
+/* Projects grid responsive */
+.project-grid { display:grid; grid-template-columns: 1fr; gap:1.5rem; align-items: start; }
+@media (min-width: 640px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .project-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Skill chips */
+.skills-chip { display:inline-block; padding:0.35rem 0.6rem; border-radius:999px; background:rgba(2,6,23,0.04); color:inherit; font-size:0.85rem; border:1px solid rgba(2,6,23,0.04); }
+.skills-chip:hover { transform:translateY(-2px); }
+
+/* Focus styles */
+:focus { outline: 3px solid rgba(6,182,212,0.12); outline-offset: 2px; }
+
+/* Glow and focus styles to improve accessibility and the neon aesthetic */
+.glow-accent {
+  box-shadow: 0 8px 30px rgba(124,58,237,0.12), 0 2px 6px rgba(6,182,212,0.06);
+}
+
+:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+	border-radius: 8px;
+}
+
+.ring-neon:focus-visible {
+  box-shadow: 0 0 20px rgba(124,58,237,0.25), 0 0 8px rgba(6,182,212,0.12), 0 0 0 3px rgba(99,102,241,0.12);
+}
+
+/* Rival theme refinements */
+.theme-rival .card { background: var(--rival-card); border: 1px solid var(--rival-border); }
+.theme-rival .project-tag { background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(255,92,147,0.08)); color: var(--rival-text); padding: 0.3rem 0.6rem; border-radius: 10px; font-size: 0.75rem; }
+.theme-rival .skills-chip { background: rgba(255,255,255,0.02); border: 1px solid var(--rival-border); color: var(--rival-text); }
+.theme-rival .card h3 { color: var(--rival-accent); }
+.theme-rival .card p { color: var(--rival-muted); }
+.theme-rival .lead { color: var(--rival-text); }
