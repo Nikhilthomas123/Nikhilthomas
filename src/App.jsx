@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import Portfolio from './components/portfolio.jsx';
+import Portfolio from './components/Portfolio.jsx';
 
 
 function App() {
